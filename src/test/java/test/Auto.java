@@ -10,7 +10,13 @@ public class Auto {
 	static int cantidadCreados;
 	
 	int cantidadAsientos(){
-		return asientos.length;
+		int cantidad=0;
+		for (int i=0;i<asientos.length;i++) {
+			if (asientos[i]!=null) {
+				cantidad++;
+			}
+		}
+		return cantidad;
 		
 		
 	}	
@@ -19,9 +25,11 @@ public class Auto {
 		boolean integridad=true;
 		if (motor.registro==this.registro) {
 			for (int i=0;i<asientos.length;i++) {
-				if (asientos[i].registro != this.registro) {
-					integridad=false;
-					break;}
+				if (asientos[i]!=null) {
+					if (asientos[i].registro != this.registro) {
+						integridad=false;
+						break;}
+				}
 			}
 		}else {integridad=false;}
 		
